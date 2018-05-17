@@ -56,6 +56,10 @@
   >
   >lunux 文件路径分隔符是顺斜杠`/`  如: /etc/profile
   >
+  >.log 日志文件
+  >
+  >.tr trace跟踪文件
+  >
   >文件通配符:
   >
   >1. `?` 表示单个任意字符
@@ -333,6 +337,16 @@ gzip -rvf test # 上面列出的文件都被压缩
    >C:192~223 小型局域网，网络段前3字节
    >
    >D：224~255 广播，直播。。。。
+   >
+   >
+   >
+   >IP第四个字节如果是0,一般表示网关    
+   >
+   >
+
+   
+
+   
 
    
 
@@ -348,4 +362,23 @@ gzip -rvf test # 上面列出的文件都被压缩
 
    - `curl <url>` # 默认屏幕上显示爬取内容
    - `wget <url>`  # 默认将爬取内容保存当前路径
-   - `telnet`
+   - `telnet ip port` #0~1023是系统保留端口
+
+4. 压力测试工具ab
+
+   ab -c 1000 -n 100 # 模拟1000个并发数,模拟100次 -c currentcy -n number
+
+5. 网络跟踪工具 
+
+   + traceroute
+   + mtr 实时
+
+6. 路由 route
+
+   + route 显示路由表
+   + route add -net ip netmask + 子网掩码 + 网卡 (reject)? # 添加路由，网卡类似于dev eth3,eth表示以太网 ,reject表示拦截请求
+   + route del -net ip netmask + 子网掩码 + 网卡 (reject)? # 删除路由 reject取决于你要删除的路由是否reject
+
+   
+
+   
