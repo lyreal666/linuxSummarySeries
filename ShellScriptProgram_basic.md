@@ -121,7 +121,7 @@ idf=$(who)
 
 ```shell
 date > date.log
-cal > date.log
+cal >> date.log
 
 # date.log 内容
 # Sat May 19 01:53:01 EDT 2018
@@ -324,7 +324,7 @@ root@kali:~/play#
 
 ### 退出状态码
 
-任何shell程序或命令结束时都会更新一个环境变量**?**
+任何shell程序或命令结束时都会更新环境变量**?**
 
 通过$?查看当前执行完程序或命令的退出码
 
@@ -374,6 +374,9 @@ May 19 06:15:01 kali CRON[6483]: (root) CMD (command -v debian-sa1 > /dev/null &
 root@kali:~/play# echo $?
 130
 root@kali:~/play# 
+root@kali:~/studyShell# grep "lly" /etc/passwd
+root@kali:~/studyShell# echo $?
+1
 
 ```
 
