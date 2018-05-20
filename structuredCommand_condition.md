@@ -287,9 +287,138 @@ strvar6 is not empty
 >
 >-G file 存在并且默认组是否属于和当前用户组相同
 >
->file1 -nt file2 file1是否比file2新
+>file1 -nt file2 file1是否比file2新 
 >
 >file1 -ot file2 file1是否比file老
 
-注意点:
+注意点:最后一组测试不会检测文件是否存在,文件不存在直接返回错误结果，编写安装软件的脚本可能会遇得到
+
+### 条件运算符
+
+和大多数编程语言一样,shell也可以使用短路与`&&`和短路或`||`
+
+```shell
+shell
+```
+
+### 高级特性
+
+1. 用于数学表达式的双括号 (())
+2. 用于高级字符串处理的双中括号[[]]
+
+(())双括号很强大
+
+1. 使用变量时不需要用$
+2. 可以直接在(())中定义变量
+3. 可以用逗号隔开执行多条运算
+4. 支持几乎所有c的运算符
+
+```shell
+root@kali:~/studyShell/conditions# cat -n testStatement.sh 
+     1	#!/bin/bash
+     2	
+     3	ivar1=2
+     4	((ivar1++))
+     5	echo $ivar1
+     6	ivar2=4
+     7	((ivar2 +=1))
+     8	echo $ivar2
+     9	((ivar3= 3 > 1 ? 3 : 1))
+    10	if ((ivar3 == ivar1)); then
+    11		echo "ivar3 equals to ivar1"
+    12	fi
+root@kali:~/studyShell/conditions# ./testStatement.sh 
+3
+5
+ivar3 equals to ivar1
+root@kali:~/studyShell/conditions# 
+
+```
+
+[[]]双中括号支持所有的test字符串比较,但比test比较强大的是多了模式匹配
+
+=~表示正则匹配
+
+
+
+```shell
+root@kali:~/studyShell/conditions# cat -n testStatement.sh 
+     1	#!/bin/bash
+     2	
+     3	user=$USER
+     4	if [[ $user == r* ]] && [[ $user =~ ^r.*?$ ]];then
+     5		echo "the user is $user"
+     6	fi
+root@kali:~/studyShell/conditions# ./testStatement.sh 
+the user is root
+root@kali:~/studyShell/conditions# 
+root@kali:~/studyShell/conditions# cat -n testStatement.sh 
+     1	#!/bin/bash
+     2	
+     3	user=$USER
+     4	if [[ $user == r* ]];then
+     5		echo "the user is $user"
+     6	fi
+root@kali:~/studyShell/conditions# ./testStatement.sh 
+the user is root
+root@kali:~/studyShell/conditions# 
+
+```
+
+### case in
+
+就是高级语言的switch语句,注意以下几点:
+
+1. case in语句每次只能执行一条case分支
+2. 分支变量可以用通配符,比如*
+3. 使用`;;`结束一个分支
+
+```shell
+root@kali:~/studyShell/conditions# cat -n testStatement.sh 
+     1	#!/bin/bash
+     2	
+     3	user1="alice"
+     4	user2="bob"
+     5	user3="hanmeimei"
+     6	
+     7	user=$user1
+     8	
+     9	case $user in
+    10		alice | bob)
+    11			echo "the user is alice or bob";;
+    12		hanmeimei)
+    13			echo "the user is hanmeimei";;
+    14		*)
+    15			echo "the user is others";;
+    16	esac
+    17	
+    18	user=$user3
+    19	case $user in
+    20		alice | bob)
+    21			echo "the user is alice or bob";;
+    22		hanmeimei)
+    23			echo "the user is hanmeimei";;
+    24		*)
+    25			echo "the user is others";;
+    26	esac
+    27	
+    28	user="hhhh"
+    29	case $user in
+    30		alice | bob)
+    31			echo "the user is alice or bob";;
+    32		hanmeimei)
+    33			echo "the user is hanmeimei";;
+    34		*)
+    35			echo "the user is others";;
+    36	esac
+    37	
+root@kali:~/studyShell/conditions# ./testStatement.sh 
+the user is alice or bob
+the user is hanmeimei
+the user is others
+root@kali:~/studyShell/conditions# 
+
+```
+
+
 
