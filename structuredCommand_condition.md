@@ -1,4 +1,4 @@
-# Structurd Command
+## Shell script - condition statement
 
 ## 条件语句
 
@@ -298,7 +298,20 @@ strvar6 is not empty
 和大多数编程语言一样,shell也可以使用短路与`&&`和短路或`||`
 
 ```shell
-shell
+root@kali:~/studyShell/conditions# cat -n testStatement.sh 
+     1	#!/bin/bash
+     2	
+     3	if [ -z `ps -ef | grep 3306 | grep -v grep` ] && ps; then
+     4		echo "true"
+     5	fi
+root@kali:~/studyShell/conditions# ./testStatement.sh 
+  PID TTY          TIME CMD
+ 8468 pts/0    00:00:00 bash
+ 8878 pts/0    00:00:00 testStatement.s
+ 8883 pts/0    00:00:00 ps
+true
+root@kali:~/studyShell/conditions# 
+
 ```
 
 ### 高级特性
