@@ -23,8 +23,8 @@
 
 ### 1.修改/etc/network/interfaces文件如下
 
-1. 先登入root账户：输入su,输入两遍密码,提示符变成`root@raspberrypi:/home/pi#`表示已经是root用户；
-2. 然后vi  /etc/network/interfaces修改成下面这个样子
+1. 先登入root账户：输入su,输入两遍密码,命令提示符变成`root@raspberrypi:/home/pi#`  表示已经是root用户；
+2. 然后`vi  /etc/network/interfaces` 修改成下面这个样子
 
 ```shell
 # interfaces(5) file used by ifup(8) and ifdown(8)
@@ -54,7 +54,7 @@ wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf
 
 说明:
 
-1. 没有密码的必须有key_mgmt=NONE
+1. 没有密码的wifi必须有key_mgmt=NONE
 2. ssid是wifi名,psk是wifi密码
 3. priority是wifi优先级,数字越大优先使用哪个,不能设置为负数
 
@@ -80,7 +80,7 @@ priority=2
 ###3.重启树莓派
 
 1. 关掉树莓派电源
-2. 拔掉网线
+2. 拔掉树莓派正在使用的网线
 3. 重新插电源
 
 ### 4.登入wifi管理员界面查看
