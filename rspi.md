@@ -13,7 +13,7 @@
 参考2篇文章:
 
 1. [树莓派连接WiFi（最稳定的方法)](https://blog.csdn.net/hktkfly6/article/details/73302648)
-2. [[树莓派Raspberry命令行配置无线网络连接](https://www.cnblogs.com/shubin/p/7746399.html)]
+2. [树莓派Raspberry命令行配置无线网络连接](https://www.cnblogs.com/shubin/p/7746399.html)
 
 ### 准备工作
 
@@ -91,5 +91,6 @@ priority=2
 4. 查看raspberry在路由器下的子网ip
 5. 电脑连上同一个wifi,使用shh连接工具输入ip连接
 
-![](https://github.com/lyreal666/linuxSummarySeries/blob/master/screenshot/rasp/wifiAdmin.png?raw=true)
+![路由器连接成功图:](https://github.com/lyreal666/linuxSummarySeries/blob/master/screenshot/rasp/wifiAdmin.png?raw=true)
 
+![手机热点连接成功图:](https://github.com/lyreal666/linuxSummarySeries/blob/master/screenshot/rasp/phoneWifi.png?raw=true)
