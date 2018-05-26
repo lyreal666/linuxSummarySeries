@@ -48,7 +48,7 @@ wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf
 
 ```
 
-###2.修改/etc/wpa_supplicant/wpa_supplicant.conf 如下
+### 2.修改/etc/wpa_supplicant/wpa_supplicant.conf 如下
 
 使用 vi /etc/wpa_supplicant/wpa_supplicant.conf 命令修改成下面这个样子
 
@@ -77,7 +77,7 @@ priority=2
 
 ```
 
-###3.重启树莓派
+### 3.重启树莓派
 
 1. 关掉树莓派电源
 2. 拔掉树莓派正在使用的网线
@@ -87,7 +87,7 @@ priority=2
 
 1. 连接路由器wifi
 2. 浏览器打开192.168.1.1,查看设备信息
-3. 打开raspberry设备管理
+3. 打开raspberry管理
 4. 查看raspberry在路由器下的子网ip
 5. 电脑连上同一个wifi,使用shh连接工具输入ip连接
 
