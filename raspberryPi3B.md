@@ -41,7 +41,7 @@
 
 ###烧系统
 
-使用win32 disk imager往格式化后的sd写入系统镜像
+使用win32 disk imager往格式化后的sd写入系统镜像g
 
 ![操作图片](https://github.com/lyreal666/linuxSummarySeries/blob/master/screenshot/rasp/Snipaste_2018-05-24_21-36-57.png?raw=true)
 
