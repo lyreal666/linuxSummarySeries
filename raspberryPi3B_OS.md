@@ -1,4 +1,4 @@
-# RaspberryPi3B
+# RaspberryPi3B_安装系统
 
 >树莓派3代B型安装系统以及使用ssh连接
 
