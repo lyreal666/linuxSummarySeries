@@ -91,3 +91,63 @@ alsamixer
 
 
 
+### 更新python3.5到3.6
+
+转载自[树莓派编译安装python3.6](https://www.jianshu.com/p/df1086337ee4)
+
+一、更新树莓派系统
+
+```
+$ sudo  apt-get  update
+$ sudo  apt-get  upgrade
+```
+
+二、安装python依赖环境
+
+```
+$ sudo apt-get install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev
+```
+
+三、下载python3.6版本源码并解压
+
+```
+$ wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+$ tar zxvf Python-3.6.1.tgz
+```
+
+四、编译安装
+
+```
+$ cd Python-3.6.1
+$ sudo ./configure
+$ sudo make
+$ sudo make install
+```
+
+五、检查安装
+
+```
+$ ls -al /usr/local/bin/python*
+lrwxrwxrwx 1 root staff       9 May 15 14:53 /usr/local/bin/python3 -> python3.6
+-rwxr-xr-x 2 root staff 9840168 May 15 14:51 /usr/local/bin/python3.6
+lrwxrwxrwx 1 root staff      17 May 15 14:53 /usr/local/bin/python3.6-config -> python3.6m-config
+-rwxr-xr-x 2 root staff 9840168 May 15 14:51 /usr/local/bin/python3.6m
+-rwxr-xr-x 1 root staff    3103 May 15 14:53 /usr/local/bin/python3.6m-config
+lrwxrwxrwx 1 root staff      16 May 15 14:53 /usr/local/bin/python3-config -> python3.6-config
+```
+
+小知识点
+
+```
+1. usr 是指 Unix System Resource，而不是User；
+2. /usr/bin：系统预装的可执行程序，会随着系统升级而改变；
+3. /usr/local/bin：用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件；
+如果两个目录下有相同的可执行程序，谁优先执行受到PATH环境变量的影响，比如我的一台服务器的PATH变量为：
+$ echo $PATH 
+/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/dean/bin 
+这里/usr/local/bin优先于/usr/bin.
+```
+
+
+
+ 

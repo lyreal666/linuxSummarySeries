@@ -252,10 +252,6 @@ q 退出
 
 top在检测系统异常的时候很有用
 
-
-
-
-
 ## 解压缩
 
 linux支持4种压缩,bzip2(.bz2),zip(zip),gzip(gz),compress(Z);compress快没人用了
@@ -324,7 +320,7 @@ gzip -rvf test # 上面列出的文件都被压缩
 
 ## 网络相关
 
-1. 查看ip信息	`ifconfig`
+1. 查看ip信息`ifconfig`
 
    >**IP**
    >
@@ -350,11 +346,11 @@ gzip -rvf test # 上面列出的文件都被压缩
 
    
 
-2. 测试网络连接    `ping -s -i -c` # -s 发包大小， -i interval 间隔， -c count
+2. 测试网络连接    `ping -s -i -c` # -s 发包大小， -i interval 间隔， -c count -W timeout
 
    >返回参数说明:
    >
-   >1. `ttl` time-to-live 就是延时timeout
+   >1. `ttl` time-to-live 每次经过一次路由转发就减去1,也就是最大转发转发次数
    >2. time 发包到接受到包的时间
    >3. `ICMP` tcp的一个子协议，用于收发网络报文, `ping` 和`telnet`就是用ICMP协议
 
@@ -366,7 +362,7 @@ gzip -rvf test # 上面列出的文件都被压缩
 
 4. 压力测试工具ab
 
-   ab -c 1000 -n 100 # 模拟1000个并发数,模拟100次 -c currentcy -n number
+   ab -c 1000 -n 100 # 模拟1000个并发数,模拟100次 -c concurrentcy -n number
 
 5. 网络跟踪工具 
 
