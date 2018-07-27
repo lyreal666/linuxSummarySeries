@@ -15,6 +15,8 @@
 11. dxdiag 检查DirectX信息,一些关于电脑的信息
 12. control 控制面板
 13. devmgmt.msc 打开设备管理器
+14. msconfig
+15. shell:startup
 
 ### 常用快捷键
 
